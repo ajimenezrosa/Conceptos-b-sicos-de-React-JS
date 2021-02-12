@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,10 +68,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
+ -->
 
 
 # Componentes y propiedades
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZycXVzcW8HSdO4L95MkD9QGrKIm7OxfPOiw&usqp=CAU)
 
 ## Los componentes permiten separar la interfaz de usuario en piezas independientes, reutilizables y pensar en cada pieza de forma aislada. Esta página proporciona una introducción a la idea de los componentes. Puedes encontrar una API detallada sobre componentes aquí.
 
@@ -162,7 +163,54 @@ colocaremos lo siguiente.
 ~~~javascript
 const { nombre = "Anonimo" } = userInfo;
 ~~~
-#### Nuestro Resultado es que al momento de el valor nombre estar en blanco o vacio no des deplegara el resultado ***undefine***.
+#### Nuestro Resultado es que al momento de el valor nombre estar en blanco o vacio no deplegara el resultado ***undefine***.
 
-#
+# Template Strings
+#### El concepto de **JavaScript template String** es parte de **JavaScript ES6** . El manejo de plantillas es general a todos los lenguajes de programación .  Java dispone de ****Thymeleaf**** , .NET de ***Razor*** y PHP de ***Smarty*** . JavaScript también dispone de su propio universo de plantillas . Pero hace tiempo se echaba en falta disponer de algún tipo de sistema de plantillas integrado en el propio lenguaje. En **ES6** aparecen los ***JavaScript template Strings*** que nos permiten usar plantillas sencillas directamente en el código, vamos a verlo. 
+ Un Ejemplo:
+ ~~~javascript
+       console.log("Hola " + name + " tiene " + edad + " años");
+~~~
 
+Este codigo retorna lo mismo que el primero pero este es mucho mas facil de leer y de escribir.
+ ~~~javascript
+      console.log(`hola ${name}, tiene ${edad} Años`)
+~~~
+
+# 
+# Hook de estado - useState
+#### ¿Qué es un **Hook**? Un **Hook** es una función especial que permite “conectarse” a características de React. Por ejemplo, useState es un **Hook** que te permite añadir el **estado** de React a un componente funcional.
+
+#### para utilizar los ***usestate*** lo primero que debemos hacer es declararlos en nuestros Imports
+~~~javascript
+import React, { useState }  from 'react';
+~~~
+#### Es importante señalar que la importacion del useState debe la hacemos en la misma importacion del ***React*** tal como se muestra.
+
+Con la sugiente instruccion podriamos decir que activamos nuestro ***useState***.
+~~~javascript
+  const [stateCar, setStateCar] = useState(false);
+~~~
+
+#### procederemos a crear nuestra funcion la cual para este ejemplo seria muy basica.
+~~~javascript
+  const encenderApagar = () => {
+        setStateCar(!stateCar);
+  }
+~~~
+#### Otra forma de hacer esto es la siguiente
+~~~javascript
+   setStateCar(prevValue => !prevValue);
+~~~
+#### ***Y surge la pregunta. ¿Cuál sería la diferencia entre uno y otro?***
+#### Bueno, solo debe tenerse en cuenta que la segunda forma de cambiar el estado se usaría en caso de que invocamos esto desde otro componente y dicho componente no tuviera acceso al estado actual de nuestro **useState** 
+
+
+La misma cambia el valor de stateCar por lo contrario , es decir si esta **false** lo colcaria **true** y vice versa
+
+#### Luego solo debemos aplicar esta funcion a un boton , tal como lo presentamos en nuestro siguiente ejemplo.
+~~~javascript
+       <h3>El coche esta: {stateCar ? "Encendido" : "Apagado"}</h3>
+        <button onClick={encenderApagar}>Encender / Apagar </button>
+
+~~~
