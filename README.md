@@ -94,9 +94,9 @@ export default function Saludar(props) {
 # 
 # Uso de la Asignación por Destructuring
 ## Introducción
-#### Desde la Edición 2015 de la especificación ECMAScript, hay disponibles muchas nuevas funciones para el lenguaje JavaScript para trabajar con conjuntos y objetos. Algunas de las más notables que aprenderá en este artículo son desestructurar, parámetros rest y propagar sintaxis. Estas funciones ofrecen formas más directas de acceder a los miembros de una matriz o un objeto, y pueden hacer que trabajar con estas estructuras de datos sea más rápido y conciso.
+#### Desde la Edición 2015 de la especificación ECMAScript, hay disponibles muchas nuevas funciones para el lenguaje JavaScript para trabajar con conjuntos y objetos. Algunas de las más notables son desestructurar, parámetros rest y propagar sintaxis. Estas funciones ofrecen formas más directas de acceder a los miembros de una matriz o un objeto, y pueden hacer que trabajar con estas estructuras de datos sea más rápido y conciso.
 
-#### Muchos otros lenguajes no tienen la sintaxis correspondiente para desestructurar, los parámetros rest y propagar, de forma que estas funciones pueden tener una curva de aprendizaje para los nuevos desarrolladores de JavaScript y para aquellos que provienen de otro lenguaje. En este artículo, aprenderá cómo desestructurar objetos y conjuntos, cómo usar el operador de propagación para descomprimir objetos y conjuntos y cómo usar los parámetros rest en las invocaciones de funciones.
+<!-- #### Muchos otros lenguajes no tienen la sintaxis correspondiente para desestructurar, los parámetros rest y propagar, de forma que estas funciones pueden tener una curva de aprendizaje. Trataremos  cómo desestructurar objetos y conjuntos, cómo usar el operador de propagación para descomprimir objetos y conjuntos y cómo usar los parámetros rest en las invocaciones de funciones. -->
 
 ## Desestructurar
 #### La asignación de desestructurar es una sintaxis que le permite asignar propiedades de objetos o elementos de una matriz como variables. Esto puede reducir enormemente las líneas de código necesarias para manipular datos en estas estructuras. Existen dos tipos de desestructuración: desestructurar objetos y desestructurar conjuntos.
@@ -137,3 +137,32 @@ Output
 My first note
 01/01/1970
 ~~~
+# 
+# Props por Defecto
+#### defaultProps es una propiedad predeterminada dentro del componente (funcional o de clase), que nos va a servir para inicializar propiedades props por defecto.
+Ejemplo:
+en el siguiente codigo
+~~~javascript
+import React from 'react';
+
+export default function Saludar(props) {
+  const {userInfo , saludarfn} = props;
+  const { nombre } = userInfo;
+  console.log(userInfo);
+  console.log(saludarfn);
+
+  return(
+    <div> 
+      <button onClick={() => saludarfn(userInfo.nombre)}> Saludar </button>
+    </div>
+  )
+}
+~~~
+colocaremos lo siguiente.
+~~~javascript
+const { nombre = "Anonimo" } = userInfo;
+~~~
+#### Nuestro Resultado es que al momento de el valor nombre estar en blanco o vacio no des deplegara el resultado ***undefine***.
+
+#
+
