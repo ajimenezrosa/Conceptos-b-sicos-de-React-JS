@@ -68,3 +68,72 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+# Componentes y propiedades
+
+## Los componentes permiten separar la interfaz de usuario en piezas independientes, reutilizables y pensar en cada pieza de forma aislada. Esta página proporciona una introducción a la idea de los componentes. Puedes encontrar una API detallada sobre componentes aquí.
+
+###### Conceptualmente, los componentes son como las funciones de JavaScript. Aceptan entradas arbitrarias (llamadas “props”) y devuelven a React elementos que describen lo que debe aparecer en la pantalla.
+
+Ejemplos del codigo del Componente de Ejemplo
+~~~javascript
+import React from 'react';
+
+export default function Saludar(props) {
+  console.log(props);
+
+  return(
+    <div> 
+      <button onClick={() => props.saludarfn(props.userInfo.nombre)}> Saludar </button>
+    </div>
+  )
+}
+~~~
+# 
+# Uso de la Asignación por Destructuring
+## Introducción
+#### Desde la Edición 2015 de la especificación ECMAScript, hay disponibles muchas nuevas funciones para el lenguaje JavaScript para trabajar con conjuntos y objetos. Algunas de las más notables que aprenderá en este artículo son desestructurar, parámetros rest y propagar sintaxis. Estas funciones ofrecen formas más directas de acceder a los miembros de una matriz o un objeto, y pueden hacer que trabajar con estas estructuras de datos sea más rápido y conciso.
+
+#### Muchos otros lenguajes no tienen la sintaxis correspondiente para desestructurar, los parámetros rest y propagar, de forma que estas funciones pueden tener una curva de aprendizaje para los nuevos desarrolladores de JavaScript y para aquellos que provienen de otro lenguaje. En este artículo, aprenderá cómo desestructurar objetos y conjuntos, cómo usar el operador de propagación para descomprimir objetos y conjuntos y cómo usar los parámetros rest en las invocaciones de funciones.
+
+## Desestructurar
+#### La asignación de desestructurar es una sintaxis que le permite asignar propiedades de objetos o elementos de una matriz como variables. Esto puede reducir enormemente las líneas de código necesarias para manipular datos en estas estructuras. Existen dos tipos de desestructuración: desestructurar objetos y desestructurar conjuntos.
+
+## Desestructurar objetos
+#### La desestructuración de objetos permite crear nuevas variables usando una propiedad de objeto como el valor.
+
+#### Considere este ejemplo, un objeto que representa una nota con ***id, title y date***:
+~~~javascript
+const note = {
+  id: 1,
+  title: 'My first note',
+  date: '01/01/1970',
+}
+~~~
+#### Tradicionalmente, si quería crear una nueva variable para cada propiedad, tendría que asignar cada variable individualmente, con muchas repeticiones:
+~~~javascript
+// Create variables from the Object properties
+const id = note.id
+const title = note.title
+const date = note.date
+~~~
+#### Con la desestructuración de objetos, esto puede hacerse en una línea. Al rodear cada variable entre corchetes {}, JavaScript creará nuevas variables desde cada propiedad con el mismo nombre:
+~~~javascript
+// Destructure properties into variables
+const { id, title, date } = note
+~~~
+#### Ahora console.log() las nuevas variables:
+~~~javascript
+console.log(id)
+console.log(title)
+console.log(date)
+~~~
+Obtendrá los valores originales de la propiedad como resultado:
+~~~
+Output
+1
+My first note
+01/01/1970
+~~~
