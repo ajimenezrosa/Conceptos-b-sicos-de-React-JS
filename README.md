@@ -72,7 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 # Componentes y propiedades
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZycXVzcW8HSdO4L95MkD9QGrKIm7OxfPOiw&usqp=CAU)
+![](https://www.freecodecamp.org/news/content/images/2020/02/Ekran-Resmi-2019-11-18-18.08.13.png)
 
 ## Los componentes permiten separar la interfaz de usuario en piezas independientes, reutilizables y pensar en cada pieza de forma aislada. Esta página proporciona una introducción a la idea de los componentes. Puedes encontrar una API detallada sobre componentes aquí.
 
@@ -214,3 +214,36 @@ La misma cambia el valor de stateCar por lo contrario , es decir si esta **false
         <button onClick={encenderApagar}>Encender / Apagar </button>
 
 ~~~
+# 
+# Hook de efecto - useEffect
+~~~javascript
+useEffect(didUpdate);
+~~~
+
+#### Acepta una función que contiene código imperativo, posiblemente código efectivo.
+
+#### Las mutaciones, suscripciones, temporizadores, registro y otros efectos secundarios no están permitidos dentro del cuerpo principal de un componente funcional (denominado como render phase de React). Si lo hace, dará lugar a errores confusos e inconsistencias en la interfaz de usuario.
+
+#### En su lugar, use useEffect. La función pasada a useEffect se ejecutará después de que el renderizado es confirmado en la pantalla. Piense en los efectos como una escotilla de escape de React del mundo puramente funcional al mundo imperativo.
+
+#### Por defecto, los efectos se ejecutan después de cada renderizado completado, pero puede elegir ejecutarlo solo cuando ciertos valores han cambiado.
+~~~javascript
+import React, { useState, useEffect}  from 'react';
+~~~
+la importacion de ***useEffect*** es practicamente igual que la ***useState*** 
+
+#### Lo que hace esto en un lenguaje simple es que se ejectaria lo que esta en el **useEffect**  cada vez que una propieda o objeto se modifique.
+~~~javascript
+  useEffect(() => {
+     console.log("Total:" + contar); 
+  },[contar])
+~~~
+
+el codigo que esta dentro de **useEffect** es decir el 
+~~~javascript 
+console.log("Total:" + constar)
+~~~
+se ejecutara cada vez que cambie el valor de contar.
+
+
+
